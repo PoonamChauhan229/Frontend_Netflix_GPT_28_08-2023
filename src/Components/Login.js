@@ -4,16 +4,21 @@ import Banner from "../assets/Banner.jpg";
 import { checkValidData } from "../utilis/validate";
 import { URL } from "../constants";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utilis/redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignInForm,setIsSignInForm]=useState(true);
   const [errorMessage,setErrorMessage]=useState(null)
 
-  const email=useRef(null)
-  const password=useRef(null)
-  const name=useRef(null)
+  const emailid=useRef(null)
+  const upassword=useRef(null)
+  const uname=useRef(null)
 
 
+  const dispatch=useDispatch();
+  const navigate=useNavigate()
   const toggleSignInForm=()=>{
     setIsSignInForm(!isSignInForm)
   }
@@ -22,28 +27,58 @@ const Login = () => {
     //Validating the form data
     let message;
     if (isSignInForm) {
-      message = checkValidData(email.current.value, password.current.value);
+      message = checkValidData(emailid.current.value, upassword.current.value);
+      const tokenid=localStorage.getItem('token')
+      console.log(tokenid)
       if(!message){
-        const response=await axios.post(`${URL}/users/signin`,{
-          email:email.current.value,
-          password:password.current.value
-        })
+        const response=await axios.post(`${URL}/users/signin`,
+        {
+          email:emailid.current.value,
+          password:upassword.current.value
+        }
+        ,
+        {
+           headers:{
+            'Content-Type': 'application/json',
+            "Authorization": `Bearer ${tokenid}`
+           }
+        }
+        )
         console.log(`Login Successfully`,response.data)
+        
+        const {_id,email,name}=response.data.user[0]
+        console.log(_id,email,name)
+        const{token}=response.data
+        console.log(token)
+        dispatch(addUser({_id,email,name,token}))
+        navigate('/browse')
+        
       }      
-    } else {
-      message = checkValidData(email.current.value,password.current.value,name.current.value);
+    } 
+    else {
+      message = checkValidData(emailid.current.value,upassword.current.value,uname.current.value);
       if(!message){
         const response= await axios.post(`${URL}/users/signup`,{
-          name:name.current.value,
-          email:email.current.value,
-          password:password.current.value
+          name:uname.current.value,
+          email:emailid.current.value,
+          password:upassword.current.value
         })
         console.log("Sign Up response:", response.data);
+        console.log("token",response.data.token)
+        localStorage.setItem("token",response.data.token)
+
+        const {name,email,password}=response.data.user
+        console.log(password,email,name)
+        const{token}=response.data
+        console.log(token)
+        dispatch(addUser({name,email,password,token}))
+        navigate('/browse')
+
       }
     }
-    console.log(email.current.value)
-    console.log(password.current.value)
-    console.log(name.current ? name.current.value : null);
+    console.log(emailid.current.value)
+    console.log(upassword.current.value)
+    console.log(uname.current ? uname.current.value : null);
     console.log(message)
     setErrorMessage(message)   
   }
@@ -58,13 +93,13 @@ const Login = () => {
         <h1 className="font-bold text-3xl py-4">{isSignInForm?"Sign In":"Sign Up"}</h1>
         
        {!isSignInForm &&(
-         <input ref={name} type="text" name="" id="" className="p-4 my-4 w-full bg-gray-700 " placeholder="Full Name"/>
+         <input ref={uname} type="text" name="" id="" className="p-4 my-4 w-full bg-gray-700 " placeholder="Full Name"/>
        )
        }
-        <input ref={email} type="email" name="" id="" className="p-4 my-4 w-full bg-gray-700 " placeholder="Email Address"/>
+        <input ref={emailid} type="email" name="" id="" className="p-4 my-4 w-full bg-gray-700 " placeholder="Email Address"/>
 
 
-        <input ref={password} type="password" name="" id="" className="p-4 my-4 w-full bg-gray-700" placeholder="Password"/>
+        <input ref={upassword} type="password" name="" id="" className="p-4 my-4 w-full bg-gray-700" placeholder="Password"/>
         
         
         {errorMessage && <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>}
