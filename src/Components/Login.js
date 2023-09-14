@@ -90,7 +90,7 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
         console.log(token)
         dispatch(addUser({name,email,password,token}))
 
-        navigate('/browse')
+        setIsSignInForm(true)
 
       }
     }
