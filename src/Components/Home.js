@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Header from "./Header";
 import Banner from "../assets/Banner.jpg";
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
-const Home = () => {
+const Home = ({isSignInForm,setIsSignInForm, isSignUpForm,setIsSignUpForm}) => {
   const navigate = useNavigate();
 
-//   const [showSignUpForm, setShowSignUpForm] = useState(false);
- 
   const handleGetStartedClick = () => {
-  
-    navigate(`/login/true`);
-  }
-  
+    setIsSignInForm(false); // Set to false to show the signup form
+    setIsSignUpForm(true); // Set to true to show the signup form
+    navigate("/login"); // Navigate to the login route
+  };
+ 
   return (
     <>
-      {/* {console.log(showSignUpForm)} */}
+     <div className="fixed top-0 left-0 w-screen h-screen flex flex-col bg-gradient-to-b from-black z-10 bg-black">
+      <Header isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} />
 
-      <div className="fixed top-0 left-0 w-screen h-screen flex flex-col bg-gradient-to-b from-black z-10 bg-black">
-        <Header />
         <div className="flex flex-col justify-center items-center h-full">
           <img className="w-full" src={Banner} alt="banner" />
           <div className="absolute top-1/2 transform -translate-y-1/2 text-5xl font-bold text-white text-center w-full">
@@ -31,11 +29,11 @@ const Home = () => {
             </p>
 
             <button
-              onClick={() => handleGetStartedClick()}
-              className="bg-red-700 hover:bg-red-600 text-white text-lg font-bold px-7 rounded shadow-md transition duration-300 ease-in-out h-10 m-4"
-            >
-              Get Started
-            </button>
+            onClick={handleGetStartedClick}
+            className="bg-red-600 hover:bg-red-600 text-white text-3xl font-bold px-10 rounded shadow-md transition duration-300 ease-in-out h-20 m-4"
+          >
+            Get Started
+          </button>
           </div>
         </div>
       </div>

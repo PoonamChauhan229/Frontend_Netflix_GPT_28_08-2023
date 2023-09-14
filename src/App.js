@@ -7,18 +7,30 @@ import Home from "./Components/Home";
 import './App.css'
 
 function App() {
+const [isSignInForm, setIsSignInForm] = useState(false);
+const[isSignUpForm,setIsSignUpForm]=useState(false)
+
 const [isAuthenticated,setIsAuthenticated]=useState(false)
   return (
    
         <div>          
           
             <Routes>
-              <Route exact path='/' element={<Home/>}/>
-              <Route exact path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>} />
+              <Route exact path='/' element={<Home isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} 
+               isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}
+              
+              />}/>
+              <Route exact path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
+              isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}   
+              isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}       
+              />}/>
 
-              {/* <Route path="/login/:showSignUpForm" element={<Navigate replace to ="/login"/>}/> */}
+         
 
-                  <Route path="/login/:param" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>} />
+                  <Route path="/login/:param" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
+                  isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}
+                  isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}  
+                  />} />
 
             {isAuthenticated ? (
           <Route exact path="/browse" element={<Browse />} />
