@@ -39,7 +39,7 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
       // if(true){
       message = checkValidData(emailid.current.value, upassword.current.value);
       const tokenid=localStorage.getItem('token')
-      console.log(tokenid)
+     
       if(!message){
         const response=await axios.post(`${URL}/users/signin`,
         {
@@ -61,10 +61,14 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
         console.log(_id,email,name)
         const{token}=response.data
         console.log(token)
+
+        localStorage.setItem("token", response.data.token);
+        console.log("Token in localStorage:", localStorage.getItem("token"));
+       
         dispatch(addUser({_id,email,name,token}))
-        if(tokenid){
+        if(token){
           setIsAuthenticated(true)
-          navigate('/browse')
+          navigate('/')
         }else{
           setIsAuthenticated(false)
         }

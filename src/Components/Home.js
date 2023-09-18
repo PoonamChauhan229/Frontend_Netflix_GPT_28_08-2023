@@ -1,11 +1,11 @@
 import React, { useState,useEffect } from "react";
 import Header from "./Header";
 import Banner from "../assets/Banner.jpg";
-import Login from "./Login";
 import { useNavigate } from "react-router-dom";
 const Home = ({isSignInForm,setIsSignInForm, isSignUpForm,setIsSignUpForm}) => {
   const navigate = useNavigate();
 
+  
   const handleGetStartedClick = () => {
     setIsSignInForm(false); // Set to false to show the signup form
     setIsSignUpForm(true); // Set to true to show the signup form

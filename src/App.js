@@ -5,6 +5,7 @@ import Browse from "./Components/Browse";
 import { useState } from "react";
 import Home from "./Components/Home";
 import './App.css'
+import Profile from "./Components/Profile";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -25,6 +26,7 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
               isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}       
               />}/>
 
+            <Route exact path='/profile/:username' element={<Profile/>}/>
          
 
                   <Route path="/login/:param" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
