@@ -1,11 +1,10 @@
 import { Route, Routes,Navigate } from "react-router-dom";
 import Login from "./Components/Login";
-import Header from "./Components/Header"
-import Browse from "./Components/Browse";
 import { useState } from "react";
 import Home from "./Components/Home";
 import './App.css'
 import Profile from "./Components/Profile";
+import { ProfileNavbar } from "./Components/ProfileNavbar";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -21,12 +20,13 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
                isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}
               
               />}/>
+
               <Route exact path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
               isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}   
               isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}       
               />}/>
 
-            <Route exact path='/profile/:username' element={<Profile/>}/>
+            <Route exact path='/profile/:username' element={<ProfileNavbar/>}/>
          
 
                   <Route path="/login/:param" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
@@ -35,10 +35,10 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
                   />} />
 
             {isAuthenticated ? (
-          <Route exact path="/browse" element={<Browse />} />
+          <Route exact path="/profile" element={<Profile />} />
         ) : (
           // Redirect to the home page if the user is not authenticated
-          <Route path="/browse" element={<Navigate to="/" />} />
+          <Route path="/profile" element={<Navigate to="/" />} />
         )}  
               
             </Routes>

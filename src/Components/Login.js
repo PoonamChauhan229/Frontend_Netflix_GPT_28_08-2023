@@ -6,7 +6,7 @@ import { URL } from "../constants";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utilis/redux/userSlice";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
   setIsSignUpForm,isSignUpForm}) => {
@@ -68,7 +68,7 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
         dispatch(addUser({_id,email,name,token}))
         if(token){
           setIsAuthenticated(true)
-          navigate('/')
+          navigate('/profile')
         }else{
           setIsAuthenticated(false)
         }

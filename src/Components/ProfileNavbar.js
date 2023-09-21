@@ -8,14 +8,13 @@ import Dalia from '../assets/profile/Dalia.png';
 import Ninou from '../assets/profile/Ninou.png';
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utilis/redux/userSlice";
-
+import Display from "./Display";
 
 export const ProfileNavbar = () => {
   const dispatch=useDispatch()
   const navigate=useNavigate()
   const profileUserName=useSelector((store)=>store.user)
-  console.log(profileUserName.name)
-  // //const Alea=profileUserName.name
+  
   const { username } = useParams();
   const profileImages = {Alea, Amina, Daniel, Dalia, Ninou };
   const profileIcon = profileImages[username] || Alea;
@@ -31,7 +30,7 @@ export const ProfileNavbar = () => {
     console.log("Signned Out Successfully")
     dispatch(removeUser())
     localStorage.removeItem('token')
-    navigate('/browse')
+    navigate('/profile')
   }
   
   return (
@@ -76,7 +75,10 @@ export const ProfileNavbar = () => {
               )}           
           </div>
         </div>
+
+        
       </div>
+      <Display/>
     </>
   );
 };
