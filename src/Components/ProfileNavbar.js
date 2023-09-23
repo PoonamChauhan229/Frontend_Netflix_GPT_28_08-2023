@@ -8,7 +8,7 @@ import Dalia from '../assets/profile/Dalia.png';
 import Ninou from '../assets/profile/Ninou.png';
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utilis/redux/userSlice";
-import Display from "./Display";
+import Browse from "./Browse";
 
 export const ProfileNavbar = () => {
   const dispatch=useDispatch()
@@ -74,11 +74,9 @@ export const ProfileNavbar = () => {
               </div>
               )}           
           </div>
-        </div>
-
-        
+        </div>        
       </div>
-      <Display/>
+      <Browse/>
     </>
   );
 };

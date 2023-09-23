@@ -13,8 +13,8 @@ const useNowPlayingMovies = () => {
   
     const getNowPlayingMovies=async()=>{
     const movie=await axios.get(`${URL}/nowplayingmovies`)
-    console.log(movie.data.results)
-    dispatch(addNowPlayingMovies(movie.data.results))
+    console.log(movie.data)
+    dispatch(addNowPlayingMovies(movie.data))
     }
 }
 
