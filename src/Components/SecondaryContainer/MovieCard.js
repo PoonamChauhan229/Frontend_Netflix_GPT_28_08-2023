@@ -1,18 +1,16 @@
-import React from 'react'
-import { IMG_CDN_URL } from '../../constants'
+import React from 'react';
+import { IMG_CDN_URL } from '../../constants';
 
-const MovieCard = ({poster_path}) => {
-    // console.log(movie)
-    // const {poster_path}=movie
-    
+const MovieCard = ({ poster_path }) => {
   return (
-    <div className='pr-4 w-[200px] h-[100px] '>
-  <img src={IMG_CDN_URL + "/" + poster_path} alt="" className='object-cover w-full h-full'/>
-</div>
-
-
-
-  )
+    <div className='pr-4 w-[240px] h-[140px] overflow-hidden'>     
+        <img
+          src={IMG_CDN_URL + "/" + poster_path}
+          alt=""
+          className='w-full h-full object-fill'
+        />
+   
+    </div>
+  );
 }
-
-export default MovieCard
+export default MovieCard;
