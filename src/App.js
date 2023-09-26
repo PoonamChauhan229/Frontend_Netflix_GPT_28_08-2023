@@ -5,6 +5,8 @@ import Home from "./Components/Home";
 import './App.css'
 import Profile from "./Components/Profile";
 import { ProfileNavbar } from "./Components/ProfileNavbar";
+import WatchPage from "./Components/WatchPage";
+import Browse from "./Components/Browse";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -26,7 +28,7 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
               isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}       
               />}/>
 
-            <Route exact path='/profile/:username' element={<ProfileNavbar/>}/>
+            <Route exact path='/profile/:username' element={<Browse/>}/>
          
 
                   <Route path="/login/:param" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
@@ -38,8 +40,9 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
           <Route exact path="/profile" element={<Profile />} />
         ) : (
           // Redirect to the home page if the user is not authenticated
-          <Route path="/profile" element={<Navigate to="/" />} />
+          <Route path="/profile" element={<Navigate to="/" />} />          
         )}  
+        <Route path='/watchpage' element={<WatchPage/>}/>
               
             </Routes>
         </div>

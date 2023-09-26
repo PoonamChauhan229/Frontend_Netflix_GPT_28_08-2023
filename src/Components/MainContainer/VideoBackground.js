@@ -12,10 +12,11 @@ const VideoBackground = ({ videoTrailer }) => {
   console.log(YoutubeSrcUrl + "/" + trailer.key);
 
   return (
-    <div className="w-[100%] overflow-x-hidden">
+<div className="w-[100%] overflow-x-hidden">
  <iframe
-  className="w-full aspect-video"
-  src={`${YoutubeSrcUrl}/${trailer.key}?&autoplay=1&mute=1&disablekb=0&controls=0&rel=0`}
+  className="w-full aspect-video" style={{marginTop:"-45px"}} 
+  src={`${YoutubeSrcUrl}/${trailer.key}?autoplay=1&mute=1&disablekb=0&controls=0&rel=0`}
+  title="XYZ"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 ></iframe>
 

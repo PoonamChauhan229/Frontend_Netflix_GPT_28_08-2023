@@ -35,7 +35,7 @@ export const ProfileNavbar = () => {
   
   return (
     <>
-      <div className="bg-black py-2 px-8 flex justify-between items-center relative">
+       <div className="fixed top-0 left-0 right-0 bg-black py-2 px-8 flex justify-between items-center z-50">
         <div className="flex items-center"> {/* Left side */}
           <img className="w-20 max-h-10" src={netflixLogo} alt="logo" />
           <div className="text-gray-400 text-sm ml-4 flex items-center space-x-4">
@@ -76,7 +76,7 @@ export const ProfileNavbar = () => {
           </div>
         </div>        
       </div>
-      <Browse/>
+           
     </>
   );
 };
