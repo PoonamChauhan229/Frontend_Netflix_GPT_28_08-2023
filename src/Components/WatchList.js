@@ -17,10 +17,10 @@ export const WatchList = () => {
     const response = await axios.get(`${URL}/watchlist`);
     const watchlistData = response.data;
        
-       const moviewatchlist= watchlistData.filter((element)=>element.type==="movie")
+       const moviewatchlist= watchlistData.filter((element)=>element.media_type==="movie")
        dispatch(addPlayingMovies(moviewatchlist))
 
-       const tvserieswatchlist= watchlistData.filter((element)=>element.type==="tvseries")
+       const tvserieswatchlist= watchlistData.filter((element)=>element.media_type==="tvseries")
        dispatch(addPlayingTvSeries(tvserieswatchlist))
     }
   return (

@@ -39,15 +39,23 @@ export const ProfileNavbar = () => {
         <div className="flex items-center"> {/* Left side */}
           <img className="w-20 max-h-10" src={netflixLogo} alt="logo" />
           <div className="text-gray-400 text-sm ml-4 flex items-center space-x-4">
-            <div className="hover:text-red-500 cursor-pointer">Home</div>
+            <div className="hover:text-red-500 cursor-pointer">
+              <Link to='/home'>Home</Link>
+            </div>
             <div className="hover:text-red-500 cursor-pointer">
               <Link to='/tvshows'>TV Shows</Link>
             </div>
-            <div className="hover:text-red-500 cursor-pointer">Movies</div>
-            <div className="hover:text-red-500 cursor-pointer">New & Popular</div>
+            <div className="hover:text-red-500 cursor-pointer">
+            <Link to='/movies'>Movies</Link>
+            </div>
+            <div className="hover:text-red-500 cursor-pointer">
+            <Link to='/newpopular'>New & Popular</Link>
+              </div>
             <div className="hover:text-red-500 cursor-pointer">
               <Link to='/watchlist'>My List</Link></div>
-            <div className="hover:text-red-500 cursor-pointer">Browse by Languages</div>
+            <div className="hover:text-red-500 cursor-pointer">
+              Browse by Languages
+              </div>
           </div>          
         </div>
 

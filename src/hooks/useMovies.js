@@ -3,8 +3,6 @@ import { addNowPlayingMovies, addpopularMovies, addtopRatedMovies, addtrendingMo
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { addAiringTodayTvSeries, addOnTheAirTvSeries, addTopRatedTvSeries,addPopularTvSeries } from '../utilis/redux/tvseriesSlice';
-
 const useMovies = () => {
     const dispatch=useDispatch()
     const token=localStorage.getItem('token')
@@ -37,25 +35,7 @@ const useMovies = () => {
     const upcomingmovies=await axios.get(`${URL}/upcomingmovies`)
     // console.log(upcomingmovies.data)
     dispatch(addupcomingMovies(upcomingmovies.data))
-
-    //TV series
-    const airingtodaytvseries=await axios.get(`${URL}/airingtodaytvseries`)
-    // console.log(airingtodaytvseries.data)
-    dispatch(addAiringTodayTvSeries(airingtodaytvseries.data))
-
-    const ontheairtvseries=await axios.get(`${URL}/ontheairtvseries`)
-    // console.log(ontheairtvseries.data)
-    dispatch(addOnTheAirTvSeries(ontheairtvseries.data))
-
-    const populartvseries=await axios.get(`${URL}/populartvseries`)
-    // console.log(populartvseries.data)
-    dispatch(addPopularTvSeries(populartvseries.data))
-    
-
-    const topratedtvseries=await axios.get(`${URL}/topratedtvseries`)
-    // console.log(topratedtvseries.data)
-    dispatch(addTopRatedTvSeries(topratedtvseries.data))
-    
+   
     }
 }
 

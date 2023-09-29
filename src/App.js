@@ -8,7 +8,9 @@ import { ProfileNavbar } from "./Components/ProfileNavbar";
 import WatchPage from "./Components/WatchPage";
 import Browse from "./Components/Browse";
 import { WatchList } from "./Components/WatchList";
-import TVShowsBrowse from "./Components/TVShowsBrowse";
+import TVShowsBrowse from "./Components/TVShows/TVShowsBrowse";
+import MoviesBrowse from "./Components/Movies/MoviesBrowse";
+import NewPopularBrowse from "./Components/NewPopular/NewPopularBrowse";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -46,10 +48,14 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
         )}  
         <Route path='/watchpage' element={<WatchPage/>}/>
 
-        <Route path='/watchlist' element={<WatchList/>}/>
+       
 
         {/* ProfileNavbar Routes */}
           <Route path='/tvshows' element={<TVShowsBrowse/>}/>
+          <Route path='/movies' element={<MoviesBrowse/>}/>
+          <Route path='/newpopular' element={<NewPopularBrowse/>}/>
+          <Route path='/home' element={<Browse/>}/>
+          <Route path='/watchlist' element={<WatchList/>}/>
               
             </Routes>
         </div>

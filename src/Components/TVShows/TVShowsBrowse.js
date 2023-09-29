@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
-import useTVShows from '../hooks/useTvShows'
-import MainContainer from './MainContainer/MainContainer'
-import { ProfileNavbar } from './ProfileNavbar'
-import SecondaryContainer from './SecondaryContainer/SecondaryContainer'
+import useTVShows from '../../hooks/useTvShows'
+import MainContainer from '../MainContainer/MainContainer'
+import { ProfileNavbar } from '../ProfileNavbar'
+import TVShowsSecondaryContainer from './TVShowsSecondaryContainer'
 
 const TVShowsBrowse = () => {
     useTVShows() 
@@ -13,7 +13,7 @@ const TVShowsBrowse = () => {
     <ProfileNavbar/>
     <div className='relative'>
       <MainContainer movies={tvseries}/>
-      <SecondaryContainer/>
+      <TVShowsSecondaryContainer/>
     </div>
     </>
   )

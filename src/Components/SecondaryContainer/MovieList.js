@@ -13,7 +13,7 @@ const MovieList = ({ title, movies }) => {
             movieid={element.id}
             key={element.id} poster_path={element.poster_path} videoTrailer={element?.videoTrailer[0]?.key}
             original_title={element.original_title} original_name={element.original_name}
-            type={element.type}
+            media_type={element.media_type}
             
             />
           ))}

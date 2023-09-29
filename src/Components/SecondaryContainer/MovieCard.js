@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const MovieCard = ({original_title,original_name,poster_path,movieid,videoTrailer,type}) => {
+const MovieCard = ({original_title,original_name,poster_path,movieid,videoTrailer,media_type}) => {
   
   const navigate = useNavigate();
   const addDatatoWatchList=async()=>{
     const response= await axios.post(`${URL}/watchlist/add`,{
-      original_title,original_name,poster_path,id:movieid,videoTrailer,type
+      original_title,original_name,poster_path,id:movieid,videoTrailer,media_type
     })
     console.log(response)
   }

@@ -4,13 +4,15 @@ import userSliceReducer from "./userSlice"; // Import the userReducer from userS
 import movieSliceReducer from "./moviesSlice"; // Import the movieReducer from movieSlice.js
 import tvSeriesSliceReducer from './tvseriesSlice';
 import watchlistSliceReducer from './watchListSlice'
+import alldataPagesSliceReducer from'./allDataSlice'
 
 const appStore = configureStore({
   reducer: {
     user: userSliceReducer, // Assign the userReducer to the 'user' slice
     movies: movieSliceReducer, // Assign the movieReducer to the 'movies' slice
     tvSeries:tvSeriesSliceReducer,
-    watchlist:watchlistSliceReducer
+    watchlist:watchlistSliceReducer,
+    allDataPages:alldataPagesSliceReducer
   },
 });
 
