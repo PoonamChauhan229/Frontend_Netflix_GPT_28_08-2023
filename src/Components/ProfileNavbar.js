@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import netflixLogo from "../assets/Netflix_Logo_PMS.png";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Alea from '../assets/profile/Alea.png';
 import Amina from '../assets/profile/Amina.png';
 import Daniel from '../assets/profile/Daniel.png';
@@ -40,10 +40,13 @@ export const ProfileNavbar = () => {
           <img className="w-20 max-h-10" src={netflixLogo} alt="logo" />
           <div className="text-gray-400 text-sm ml-4 flex items-center space-x-4">
             <div className="hover:text-red-500 cursor-pointer">Home</div>
-            <div className="hover:text-red-500 cursor-pointer">TV Shows</div>
+            <div className="hover:text-red-500 cursor-pointer">
+              <Link to='/tvshows'>TV Shows</Link>
+            </div>
             <div className="hover:text-red-500 cursor-pointer">Movies</div>
             <div className="hover:text-red-500 cursor-pointer">New & Popular</div>
-            <div className="hover:text-red-500 cursor-pointer">My List</div>
+            <div className="hover:text-red-500 cursor-pointer">
+              <Link to='/watchlist'>My List</Link></div>
             <div className="hover:text-red-500 cursor-pointer">Browse by Languages</div>
           </div>          
         </div>

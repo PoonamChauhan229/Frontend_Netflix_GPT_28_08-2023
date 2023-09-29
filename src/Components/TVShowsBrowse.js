@@ -1,21 +1,21 @@
 import { useSelector } from 'react-redux'
-import useMovies from '../hooks/useMovies'
+import useTVShows from '../hooks/useTvShows'
 import MainContainer from './MainContainer/MainContainer'
 import { ProfileNavbar } from './ProfileNavbar'
 import SecondaryContainer from './SecondaryContainer/SecondaryContainer'
 
-const Browse = () => {
-
- useMovies() 
- const movies=useSelector((store)=>store.movies?.nowPlayingMovies)
+const TVShowsBrowse = () => {
+    useTVShows() 
+    const tvseries=useSelector((store)=>store.tvSeries?.popularTvSeries)
+    console.log(tvseries)
   return (
     <>
     <ProfileNavbar/>
     <div className='relative'>
-      <MainContainer movies={movies}/>
+      <MainContainer movies={tvseries}/>
       <SecondaryContainer/>
     </div>
     </>
   )
 }
-export default Browse
+export default TVShowsBrowse

@@ -10,11 +10,10 @@ import { useNavigate } from "react-router-dom";
 
 const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
   setIsSignUpForm,isSignUpForm}) => {
-  console.log(isSignInForm)
-  // const showSignUpForm=true;
-
-  // console.log(isAuthenticated,setIsAuthenticated)
  
+    const tokenid=localStorage.getItem('token')
+    console.log("Login",tokenid)
+
   const [errorMessage,setErrorMessage]=useState(null)
  
   const emailid=useRef(null)
@@ -33,14 +32,16 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
   }
 
   const handleButtonClick=async()=>{
-    //Validating the form data
+        //Validating the form data
     let message;
     if (isSignInForm) {
       // if(true){
       message = checkValidData(emailid.current.value, upassword.current.value);
-      const tokenid=localStorage.getItem('token')
+      
      
       if(!message){
+        const tokenid=localStorage.getItem('token')
+    console.log("Login",tokenid)
         const response=await axios.post(`${URL}/users/signin`,
         {
           email:emailid.current.value,
@@ -50,23 +51,24 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
         {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${tokenid}`
-          }
-          
+          }          
         }
         )
+        
         console.log(`Login Successfully`,response.data)
         
         const {_id,email,name}=response.data.user[0]
         console.log(_id,email,name)
         const{token}=response.data
         console.log(token)
-
+        
         localStorage.setItem("token", response.data.token);
-        console.log("Token in localStorage:", localStorage.getItem("token"));
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
        
         dispatch(addUser({_id,email,name,token}))
         if(token){
+          
+          console.log("Token in localStorage:", localStorage.getItem("token"));
           setIsAuthenticated(true)
           navigate('/profile')
         }else{

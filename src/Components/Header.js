@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Header = ({isSignInForm,setIsSignInForm}) => {
-  console.log(isSignInForm,setIsSignInForm)
+  // console.log(isSignInForm,setIsSignInForm)
   const navigate=useNavigate()
 
   useEffect(() => {
