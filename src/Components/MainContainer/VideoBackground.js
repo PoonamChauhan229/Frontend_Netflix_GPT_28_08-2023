@@ -15,7 +15,7 @@ const VideoBackground = ({ videoTrailer }) => {
 <div className="w-[100%] overflow-x-hidden">
  <iframe
   className="w-full aspect-video" style={{marginTop:"-45px"}} 
-  src={`${YoutubeSrcUrl}/${trailer?.key}?autoplay=1&mute=1&disablekb=0&rel=0`}
+  src={`${YoutubeSrcUrl}/${trailer?.key}?autoplay=1&mute=1&disablekb=0&rel=0&loop=1&playlist=${trailer?.key}`}
   title="XYZ"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 ></iframe>

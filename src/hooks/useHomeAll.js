@@ -19,6 +19,7 @@ const useHomeAll= () => {
       try {
         const pagemovietv = await axios.get(`${URL}/getalllist`);
         const data = pagemovietv.data;
+        console.log(pagemovietv)
   
         // Store the first 15 items in addPage1
         dispatch(addPage1(data.slice(0, 15)));

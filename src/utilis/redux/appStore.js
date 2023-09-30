@@ -5,6 +5,7 @@ import movieSliceReducer from "./moviesSlice"; // Import the movieReducer from m
 import tvSeriesSliceReducer from './tvseriesSlice';
 import watchlistSliceReducer from './watchListSlice'
 import alldataPagesSliceReducer from'./allDataSlice'
+import gptSliceReducer from './gptSlice'
 
 const appStore = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ const appStore = configureStore({
     movies: movieSliceReducer, // Assign the movieReducer to the 'movies' slice
     tvSeries:tvSeriesSliceReducer,
     watchlist:watchlistSliceReducer,
-    allDataPages:alldataPagesSliceReducer
+    allDataPages:alldataPagesSliceReducer,
+    gpt:gptSliceReducer
   },
 });
 

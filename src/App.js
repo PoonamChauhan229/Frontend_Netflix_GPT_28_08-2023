@@ -11,6 +11,7 @@ import { WatchList } from "./Components/WatchList";
 import TVShowsBrowse from "./Components/TVShows/TVShowsBrowse";
 import MoviesBrowse from "./Components/Movies/MoviesBrowse";
 import NewPopularBrowse from "./Components/NewPopular/NewPopularBrowse";
+import Footer from "./Components/Footer";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -58,6 +59,7 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
           <Route path='/watchlist' element={<WatchList/>}/>
               
             </Routes>
+            <Footer/>
         </div>
   
   );

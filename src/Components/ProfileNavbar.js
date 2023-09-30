@@ -8,7 +8,7 @@ import Dalia from '../assets/profile/Dalia.png';
 import Ninou from '../assets/profile/Ninou.png';
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utilis/redux/userSlice";
-import Browse from "./Browse";
+import { toggleGptSearchView } from "../utilis/redux/gptSlice";
 
 export const ProfileNavbar = () => {
   const dispatch=useDispatch()
@@ -25,6 +25,11 @@ export const ProfileNavbar = () => {
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
+
+const handleGPTSearchClick=()=>{
+  //Toggle GPT Search
+  dispatch(toggleGptSearchView())
+}
 
   const checkSignOut=()=>{
     console.log("Signned Out Successfully")
@@ -60,7 +65,10 @@ export const ProfileNavbar = () => {
         </div>
 
         <div className="flex text-gray-400 items-center space-x-4 relative"> {/* Right side */}
-          <div className="hover:text-red-500 cursor-pointer text-sm">Magnify</div>
+          <button className="hover:text-red-500 cursor-pointer text-sm px-6 mt-1 text-white rounded-lg bg-red-600 p-2"
+          onClick={handleGPTSearchClick}
+          >GPT Search</button>
+
           <div className="hover:text-red-500 cursor-pointer text-sm">Kids</div>
           <div
             className="hover:text-red-500 cursor-pointer text-sm relative"
