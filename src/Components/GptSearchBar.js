@@ -1,11 +1,15 @@
 import React, { useRef } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import lang from '../utilis/languageConstants'
 import axios from 'axios'
 import {URL} from '../utilis/constants'
+import { addGptSearchData } from '../utilis/redux/gptSlice'
 export const GptSearchBar = () => {
+  const dispatch=useDispatch()
   const langKey=useSelector((store)=>store.config.lang)
   const searchGptText=useRef(null)
+
+
   const handleGptSearchClick=async()=>{
     console.log(searchGptText.current.value)
     const response=await axios.post(`${URL}/getopenaidata`,{
@@ -19,6 +23,7 @@ export const GptSearchBar = () => {
       }          
     })
     console.log(response.data)
+    dispatch(addGptSearchData(response.data))    
   }
   return (
     <div className='pt-[10%] flex justify-center'>
