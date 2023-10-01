@@ -8,7 +8,7 @@ import GptSearch from './GptSearch'
 const Browse = () => {
  useHomeAll() 
  const allDataPages=useSelector((store)=>store.allDataPages?.page1)
- console.log(allDataPages)
+ //console.log(allDataPages)
  const showGptSearch=useSelector((store)=>store.gpt.showGptSearch)
   return (
     <>

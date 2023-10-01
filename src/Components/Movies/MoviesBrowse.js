@@ -7,7 +7,7 @@ import useMovies from '../../hooks/useMovies'
 const MoviesBrowse = () => {
    useMovies() 
     const movies=useSelector((store)=>store.movies?.nowPlayingMovies)
-    console.log(movies)
+   // console.log(movies)
   return (
     <>
     <ProfileNavbar/>

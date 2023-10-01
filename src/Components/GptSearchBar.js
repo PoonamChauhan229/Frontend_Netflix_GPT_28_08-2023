@@ -1,11 +1,35 @@
-import React from 'react'
-
+import React, { useRef } from 'react'
+import { useSelector } from 'react-redux'
+import lang from '../utilis/languageConstants'
+import axios from 'axios'
+import {URL} from '../utilis/constants'
 export const GptSearchBar = () => {
+  const langKey=useSelector((store)=>store.config.lang)
+  const searchGptText=useRef(null)
+  const handleGptSearchClick=async()=>{
+    console.log(searchGptText.current.value)
+    const response=await axios.post(`${URL}/getopenaidata`,{
+      gptQuery:searchGptText.current.value
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+      }          
+    })
+    console.log(response.data)
+  }
   return (
-    <div className='pt-[20%]'>
-        <form action="" className='w-1/2 p-6 bg-black grid grid-cols-12'>
-            <input type="text" className='p-4 m-4 col-span-6' name="" id="" placeholder='What would you like to watch Today?'/>
-            <button className='col-span-6py-2 px-4 bg-red-700 text-white rounded-lg'>Search</button>
+    <div className='pt-[10%] flex justify-center'>
+  
+        <form className='w-1/2 bg-black grid grid-cols-12' onSubmit={(e)=>e.preventDefault()}>
+            <input type="text" ref={searchGptText} className='p-4 m-4 col-span-9'
+            placeholder={lang[langKey].gptSearchPlaceholder}/>
+            <button className='col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg'
+            onClick={handleGptSearchClick}
+            >
+              {lang[langKey].search}</button>
         </form>
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import Banner from "../assets/Banner.jpg";
 import { checkValidData } from "../utilis/validate";
-import { URL } from "../constants";
+import { URL } from "../utilis/constants";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utilis/redux/userSlice";
@@ -12,7 +12,7 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
   setIsSignUpForm,isSignUpForm}) => {
  
     const tokenid=localStorage.getItem('token')
-    console.log("Login",tokenid)
+   // console.log("Login",tokenid)
 
   const [errorMessage,setErrorMessage]=useState(null)
  
@@ -26,7 +26,7 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
   // signin button downside
   const toggleSignInForm=()=>{
     // navigate(`/login/${isSignInForm ? true : false}`);
-    console.log(isSignInForm)
+    //console.log(isSignInForm)
     setIsSignInForm(!isSignInForm)
 
   }
@@ -41,7 +41,7 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
      
       if(!message){
         const tokenid=localStorage.getItem('token')
-    console.log("Login",tokenid)
+   // console.log("Login",tokenid)
         const response=await axios.post(`${URL}/users/signin`,
         {
           email:emailid.current.value,
@@ -55,12 +55,12 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
         }
         )
         
-        console.log(`Login Successfully`,response.data)
+        //console.log(`Login Successfully`,response.data)
         
         const {_id,email,name}=response.data.user[0]
-        console.log(_id,email,name)
+       // console.log(_id,email,name)
         const{token}=response.data
-        console.log(token)
+       // console.log(token)
         
         localStorage.setItem("token", response.data.token);
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
@@ -68,7 +68,7 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
         dispatch(addUser({_id,email,name,token}))
         if(token){
           
-          console.log("Token in localStorage:", localStorage.getItem("token"));
+         // console.log("Token in localStorage:", localStorage.getItem("token"));
           setIsAuthenticated(true)
           navigate('/profile')
         }else{
@@ -86,24 +86,24 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
           email:emailid.current.value,
           password:upassword.current.value
         })
-        console.log("Sign Up response:", response.data);
-        console.log("token",response.data.token)
+        //console.log("Sign Up response:", response.data);
+        //console.log("token",response.data.token)
         localStorage.setItem("token",response.data.token)
 
         const {name,email,password}=response.data.user
-        console.log(password,email,name)
+        //console.log(password,email,name)
         const{token}=response.data
-        console.log(token)
+        //console.log(token)
         dispatch(addUser({name,email,password,token}))
 
         setIsSignInForm(true)
 
       }
     }
-    console.log(emailid.current.value)
-    console.log(upassword.current.value)
-    console.log(uname.current ? uname.current.value : null);
-    console.log(message)
+    //console.log(emailid.current.value)
+    //console.log(upassword.current.value)
+    //console.log(uname.current ? uname.current.value : null);
+    //console.log(message)
     setErrorMessage(message)   
   }
   return (

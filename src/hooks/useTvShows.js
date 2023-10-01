@@ -1,4 +1,4 @@
-import { URL } from '../constants';
+import { URL } from '../utilis/constants';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { addAiringTodayTvSeries, addOnTheAirTvSeries, addTopRatedTvSeries,addPopularTvSeries } from '../utilis/redux/tvseriesSlice';

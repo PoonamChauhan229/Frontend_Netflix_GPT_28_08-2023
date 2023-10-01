@@ -1,15 +1,15 @@
 import React from "react";
-import { YoutubeSrcUrl } from "../../constants";
+import { YoutubeSrcUrl } from "../../utilis/constants";
 
 const VideoBackground = ({ videoTrailer }) => {
-  console.log(videoTrailer)
+  //console.log(videoTrailer)
 
   const filterData = videoTrailer.filter(
     (element) => element.type === "Trailer"
   );
   const trailer = filterData.length ? filterData[0] : videoTrailer[0];
-  console.log(trailer);
-  console.log(YoutubeSrcUrl + "/" + trailer?.key);
+  //console.log(trailer);
+  //console.log(YoutubeSrcUrl + "/" + trailer?.key);
 
   return (
 <div className="w-[100%] overflow-x-hidden">

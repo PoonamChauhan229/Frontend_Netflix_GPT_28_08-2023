@@ -4,7 +4,6 @@ import { useState } from "react";
 import Home from "./Components/Home";
 import './App.css'
 import Profile from "./Components/Profile";
-import { ProfileNavbar } from "./Components/ProfileNavbar";
 import WatchPage from "./Components/WatchPage";
 import Browse from "./Components/Browse";
 import { WatchList } from "./Components/WatchList";
@@ -59,7 +58,7 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
           <Route path='/watchlist' element={<WatchList/>}/>
               
             </Routes>
-            <Footer/>
+           
         </div>
   
   );

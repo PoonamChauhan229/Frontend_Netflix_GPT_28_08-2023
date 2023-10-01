@@ -7,7 +7,7 @@ import TVShowsSecondaryContainer from './TVShowsSecondaryContainer'
 const TVShowsBrowse = () => {
     useTVShows() 
     const tvseries=useSelector((store)=>store.tvSeries?.popularTvSeries)
-    console.log(tvseries)
+    //console.log(tvseries)
   return (
     <>
     <ProfileNavbar/>

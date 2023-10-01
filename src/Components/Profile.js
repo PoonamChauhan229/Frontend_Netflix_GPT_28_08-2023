@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 const Profile = () => {
   const profileUserName=useSelector((store)=>store.user)
-  console.log(profileUserName.name)
+  //console.log(profileUserName.name)
   const profiles = [
     { imgSrc: Alea, username: profileUserName.name },
     { imgSrc: Amina, username: 'Amina' },

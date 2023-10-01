@@ -9,6 +9,9 @@ import Ninou from '../assets/profile/Ninou.png';
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utilis/redux/userSlice";
 import { toggleGptSearchView } from "../utilis/redux/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../utilis/constants";
+import { changeLanguage } from "../utilis/redux/configSlice";
+
 
 export const ProfileNavbar = () => {
   const dispatch=useDispatch()
@@ -32,11 +35,17 @@ const handleGPTSearchClick=()=>{
 }
 
   const checkSignOut=()=>{
-    console.log("Signned Out Successfully")
+   // console.log("Signned Out Successfully")
     dispatch(removeUser())
     localStorage.removeItem('token')
     navigate('/profile')
   }
+
+  const handleLanguageChange=(e)=>{
+    dispatch(changeLanguage(e.target.value))
+  }
+
+  const showGptSearch=useSelector((store)=>store.gpt.showGptSearch)
   
   return (
     <>
@@ -65,9 +74,20 @@ const handleGPTSearchClick=()=>{
         </div>
 
         <div className="flex text-gray-400 items-center space-x-4 relative"> {/* Right side */}
-          <button className="hover:text-red-500 cursor-pointer text-sm px-6 mt-1 text-white rounded-lg bg-red-600 p-2"
+    {showGptSearch &&
+    <select className="p-2 mt-1 bg-gray-900 text-white rounded-lg" onChange={handleLanguageChange}>
+    {SUPPORTED_LANGUAGES.map((element)=>(
+        <option className="p-2" key={element.identifier} value={element.identifier}>{element.name}</option>
+      ))
+    }
+  </select>
+    
+    }
+        
+
+          <button className="hover:text-red-500 cursor-pointer text-sm px-6 p-2 mt-1 text-white rounded-lg bg-red-600 "
           onClick={handleGPTSearchClick}
-          >GPT Search</button>
+          >{!showGptSearch?"GPT Search":"Home"}</button>
 
           <div className="hover:text-red-500 cursor-pointer text-sm">Kids</div>
           <div
@@ -77,14 +97,14 @@ const handleGPTSearchClick=()=>{
             {profileIcon && <img src={profileIcon} alt={username} className="w-8 h-8 rounded" />}
            
             {isDropdownVisible &&(
-              <div className="border absolute top-10 mr-3 -left-14 w-[110px] bg-white  shadow-md rounded-lg">
+              <div className="absolute top-10 mr-3 -left-14 w-[110px] shadow-md rounded">
                 {/* Dropdown content */}
                
-                <ul className="text-gray-700">
-                <li className="cursor-pointer hover:text-red-500 px-2 py-2 border-b-2 shadow">Help Center</li>
+                <ul className="bg-gray-900 text-white rounded">
+                <li className="cursor-pointer hover:text-red-500 px-2 py-[8%] border-b-2 shadow">Help Center</li>
                   
-                  <li className="cursor-pointer hover:text-red-500 px-2 py-2 border-b-2 shadow">{profileUserName?.name}</li>
-                  <li className="cursor-pointer hover:text-red-500 px-2 py-2 border-b-2 shadow"
+                  <li className="cursor-pointer hover:text-red-500 px-2 py-[8%] border-b-2 shadow">{profileUserName?.name}</li>
+                  <li className="cursor-pointer hover:text-red-500 px-2 py-[8%] border-b-2 shadow"
                   onClick={checkSignOut}                 
                   
                   >Sign Out</li>

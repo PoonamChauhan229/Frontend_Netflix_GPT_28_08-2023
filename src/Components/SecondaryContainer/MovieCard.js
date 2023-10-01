@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMG_CDN_URL, URL } from '../../constants';
+import { IMG_CDN_URL, URL } from '../../utilis/constants';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -11,7 +11,7 @@ const MovieCard = ({original_title,original_name,poster_path,movieid,videoTraile
     const response= await axios.post(`${URL}/watchlist/add`,{
       original_title,original_name,poster_path,id:movieid,videoTrailer,media_type
     })
-    console.log(response)
+    //console.log(response)
   }
 
   return (

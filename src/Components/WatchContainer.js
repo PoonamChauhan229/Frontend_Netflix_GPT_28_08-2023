@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import WatchCard from './WatchCard'
 
 const WatchContainer = ({title,watchlistpropsdata}) => {
-    console.log(title,watchlistpropsdata)
+    //console.log(title,watchlistpropsdata)
   return (
     <div  className='mt-[50px]'  >
     <div className="px-6">

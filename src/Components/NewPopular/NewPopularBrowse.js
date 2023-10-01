@@ -5,7 +5,7 @@ import NewPopularSecondaryContainer from './NewPopularSecondaryContainer'
 const NewPopularBrowse = () => {
    // useMovies() 
     const movies=useSelector((store)=>store.tvSeries?.popularTvSeries)
-    console.log(movies)
+    //console.log(movies)
   return (
     <>
     <ProfileNavbar/>

@@ -6,7 +6,7 @@ import tvSeriesSliceReducer from './tvseriesSlice';
 import watchlistSliceReducer from './watchListSlice'
 import alldataPagesSliceReducer from'./allDataSlice'
 import gptSliceReducer from './gptSlice'
-
+import configSliceReducer from './configSlice'
 const appStore = configureStore({
   reducer: {
     user: userSliceReducer, // Assign the userReducer to the 'user' slice
@@ -14,7 +14,8 @@ const appStore = configureStore({
     tvSeries:tvSeriesSliceReducer,
     watchlist:watchlistSliceReducer,
     allDataPages:alldataPagesSliceReducer,
-    gpt:gptSliceReducer
+    gpt:gptSliceReducer,
+    config:configSliceReducer
   },
 });
 

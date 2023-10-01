@@ -1,4 +1,4 @@
-import { URL } from '../constants';
+import { URL } from '../utilis/constants';
 import { addNowPlayingMovies, addpopularMovies, addtopRatedMovies, addtrendingMovies, addupcomingMovies } from '../utilis/redux/moviesSlice';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';

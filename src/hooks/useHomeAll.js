@@ -1,4 +1,4 @@
-import { URL } from '../constants';
+import { URL } from '../utilis/constants';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -7,7 +7,7 @@ import { addPage1,addPage2,addPage3,addPage4,addPage5 } from '../utilis/redux/al
 const useHomeAll= () => {
     const dispatch=useDispatch()
     const token=localStorage.getItem('token')
-    console.log("MoviesToken",token)
+    //console.log("MoviesToken",token)
 
     useEffect(() => {
       if(token){
@@ -19,7 +19,7 @@ const useHomeAll= () => {
       try {
         const pagemovietv = await axios.get(`${URL}/getalllist`);
         const data = pagemovietv.data;
-        console.log(pagemovietv)
+        //console.log(pagemovietv)
   
         // Store the first 15 items in addPage1
         dispatch(addPage1(data.slice(0, 15)));
