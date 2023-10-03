@@ -3,7 +3,6 @@ import MainContainer from './MainContainer/MainContainer'
 import SecondaryContainer from './SecondaryContainer/SecondaryContainer'
 import useHomeAll from '../../hooks/useHomeAll'
 import GptSearch from '../GPTSearchPage/GptSearch'
-import Loader from '../Loader'
 import {ProfileNavbar} from '../Navbar_ProfilePage/ProfileNavbar'
 
 const Browse = () => {

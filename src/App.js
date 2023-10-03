@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import BottomHeader from "./components/HomeFrontPageHeader/BottomHeader";
 import { WatchList } from "./components/WatchListPage/WatchList";
 import WatchPage from "./components/WatchListPage/WatchPage";
+import LoaderBrowse from "./components/LoaderPage/LoaderBrowse";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -56,8 +57,9 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
           <Route path='/newpopular' element={<NewPopularBrowse/>}/>
           <Route path='/home' element={<Browse/>}/>
           <Route path='/watchlist' element={<WatchList/>}/>
-              
+          <Route path='loader' element={<LoaderBrowse/>}/>  
             </Routes>
+
           
             {
             isAuthenticated && <Footer/>}
