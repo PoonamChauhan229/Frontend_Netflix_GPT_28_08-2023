@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import { ProfileNavbar } from '../Navbar_ProfilePage/ProfileNavbar'
 import NewPopularSecondaryContainer from './NewPopularSecondaryContainer'
+import LoaderBrowse from '../LoaderPage/LoaderBrowse'
 
 const NewPopularBrowse = () => {
    // useMovies() 
@@ -9,8 +10,11 @@ const NewPopularBrowse = () => {
   return (
     <>
     <ProfileNavbar/>
+    {
+      movies?<NewPopularSecondaryContainer/>:<LoaderBrowse/>
+    }
    
-    <NewPopularSecondaryContainer/>
+    
     
     </>
   )

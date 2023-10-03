@@ -68,7 +68,8 @@ const handleGPTSearchClick=()=>{
             <div className="hover:text-red-500 cursor-pointer">
               <Link to='/watchlist'>My List</Link></div>
             <div className="hover:text-red-500 cursor-pointer">
-              Browse by Languages
+              
+              <Link onClick={navigate('/loader')}>Browse by Languages</Link>
               </div>
           </div>          
         </div>

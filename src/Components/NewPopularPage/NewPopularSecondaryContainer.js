@@ -7,7 +7,7 @@ const NewPopularSecondaryContainer = () => {
   const tvSeries=useSelector((store=>store.tvSeries)) 
   return (    
     <div className='bg-black'>
-       <div className='-mt-52 pl-12 relative z-20'>    
+       <div className=' pl-12 mt-[3%]'>    
       <MovieList title={"Trending Movies"} movies={movies.trendingMovies}/>
       <MovieList title={"Upcoming Movies"} movies={movies.upcomingMovies}/>
       <MovieList title={"Popular Movies"} movies={movies.popularMovies}/>

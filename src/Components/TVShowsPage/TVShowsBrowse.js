@@ -3,6 +3,7 @@ import useTVShows from "../../hooks/useTvShows";
 import MainContainer from "../HomePage/MainContainer/MainContainer";
 import { ProfileNavbar } from "../Navbar_ProfilePage/ProfileNavbar";
 import TVShowsSecondaryContainer from "./TVShowsSecondaryContainer";
+import LoaderBrowse from "../LoaderPage/LoaderBrowse";
 
 
 const TVShowsBrowse = () => {
@@ -13,7 +14,7 @@ const TVShowsBrowse = () => {
     <>
       <ProfileNavbar />
       {!tvseries ? (
-        "null"
+        <LoaderBrowse/>
       ) : (
         <div className="relative">
           <MainContainer movies={tvseries} />
