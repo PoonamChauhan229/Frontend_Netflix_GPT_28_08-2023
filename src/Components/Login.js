@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import Header from "./Header";
 import Banner from "../assets/Banner.jpg";
 import { checkValidData } from "../utilis/validate";
 import { URL } from "../utilis/constants";
@@ -7,6 +6,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utilis/redux/userSlice";
 import { useNavigate } from "react-router-dom";
+import TopHeader from "./HomeFrontPageHeader/TopHeader";
 
 const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
   setIsSignUpForm,isSignUpForm}) => {
@@ -108,17 +108,17 @@ const Login = ({isAuthenticated,setIsAuthenticated,isSignInForm,setIsSignInForm,
   }
   return (
     <div>
-      <Header isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}
+      <TopHeader isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}
       isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}
       
       />
       <div className="absolute">
-        <img className="" src={Banner} alt="banner" />
+        <img className="h-screen w-screen" src={Banner} alt="banner" />
       </div>
 
-      <form onSubmit={(e)=>e.preventDefault()} className="absolute p-12 bg-black w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
+      <form onSubmit={(e)=>e.preventDefault()} className="absolute p-12 bg-black w-3/12 my-28 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
         
-        <h1 className="font-bold text-3xl py-4">{isSignInForm ?"Sign In":"Sign Up"}</h1>
+        <h1 className="font-bold text-2xl py-4">{isSignInForm ?"Sign In":"Sign Up"}</h1>
         
        {!isSignInForm ?(
          <input ref={uname} type="text" name="" id="" className="p-4 my-4 w-full bg-gray-700 " placeholder="Full Name"/>

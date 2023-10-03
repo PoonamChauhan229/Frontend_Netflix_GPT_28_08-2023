@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IMG_CDN_URL } from '../utilis/constants';
+import { IMG_CDN_URL } from '../../utilis/constants';
 
 
 const WatchCard = ({poster_path,videoTrailer}) => {

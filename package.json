@@ -18,8 +18,11 @@
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "react-shimmer": "^3.2.0",
+    "react-shimmer-effects-18": "^1.0.4",
     "react-use": "^17.4.0",
     "react-youtube": "^10.1.0",
+    "shimmer": "^1.2.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.0"
   },

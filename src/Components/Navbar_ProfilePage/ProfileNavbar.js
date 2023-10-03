@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import netflixLogo from "../assets/Netflix_Logo_PMS.png";
+import netflixLogo from "../../assets/Netflix_Logo_PMS.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Alea from '../assets/profile/Alea.png';
-import Amina from '../assets/profile/Amina.png';
-import Daniel from '../assets/profile/Daniel.png';
-import Dalia from '../assets/profile/Dalia.png';
-import Ninou from '../assets/profile/Ninou.png';
+import Alea from '../../assets/profileimage/Alea.png';
+import Amina from '../../assets/profileimage/Amina.png';
+import Daniel from '../../assets/profileimage/Daniel.png';
+import Dalia from '../../assets/profileimage/Dalia.png';
+import Ninou from '../../assets/profileimage/Ninou.png';
 import { useDispatch, useSelector } from "react-redux";
-import { removeUser } from "../utilis/redux/userSlice";
-import { toggleGptSearchView } from "../utilis/redux/gptSlice";
-import { SUPPORTED_LANGUAGES } from "../utilis/constants";
-import { changeLanguage } from "../utilis/redux/configSlice";
+import { removeUser } from "../../utilis/redux/userSlice";
+import { toggleGptSearchView } from "../../utilis/redux/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../../utilis/constants";
+import { changeLanguage } from "../../utilis/redux/configSlice";
 
 
 export const ProfileNavbar = () => {
@@ -49,10 +49,10 @@ const handleGPTSearchClick=()=>{
   
   return (
     <>
-       <div className="fixed top-0 left-0 right-0 bg-black py-2 px-8 flex justify-between items-center z-50">
-        <div className="flex items-center"> {/* Left side */}
+       <div className="fixed top-0 left-0 right-0 bg-black py-1 px-8 flex justify-between items-center z-50">
+        <div className="flex items-center "> {/* Left side */}
           <img className="w-20 max-h-10" src={netflixLogo} alt="logo" />
-          <div className="text-gray-400 text-sm ml-4 flex items-center space-x-4">
+          <div className="text-gray-400 text-sm ml-4 flex items-center space-x-4 w-[120%]">
             <div className="hover:text-red-500 cursor-pointer">
               <Link to='/home'>Home</Link>
             </div>
@@ -73,7 +73,7 @@ const handleGPTSearchClick=()=>{
           </div>          
         </div>
 
-        <div className="flex text-gray-400 items-center space-x-4 relative"> {/* Right side */}
+    <div className="flex text-gray-400 items-center space-x-4 relative"> {/* Right side */}
     {showGptSearch &&
     <select className="p-2 mt-1 bg-gray-900 text-white rounded-lg" onChange={handleLanguageChange}>
     {SUPPORTED_LANGUAGES.map((element)=>(
@@ -85,7 +85,7 @@ const handleGPTSearchClick=()=>{
     }
         
 
-          <button className="hover:text-red-500 cursor-pointer text-sm px-6 p-2 mt-1 text-white rounded-lg bg-red-600 "
+          <button className="hover:text-red-500 cursor-pointer text-sm px-6 p-1 mt-1 text-white rounded-lg bg-purple-600 "
           onClick={handleGPTSearchClick}
           >{!showGptSearch?"GPT Search":"Home"}</button>
 

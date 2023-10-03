@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import lang from '../utilis/languageConstants'
+import lang from '../../utilis/languageConstants'
 import axios from 'axios'
-import {URL} from '../utilis/constants'
-import { addGptSearchData } from '../utilis/redux/gptSlice'
+import {URL} from '../../utilis/constants'
+import { addGptSearchData } from '../../utilis/redux/gptSlice'
 export const GptSearchBar = () => {
   const dispatch=useDispatch()
   const langKey=useSelector((store)=>store.config.lang)
@@ -26,7 +26,7 @@ export const GptSearchBar = () => {
     dispatch(addGptSearchData(response.data))    
   }
   return (
-    <div className='pt-[10%] flex justify-center'>
+    <div className=' flex justify-center'>
   
         <form className='w-1/2 bg-black grid grid-cols-12' onSubmit={(e)=>e.preventDefault()}>
             <input type="text" ref={searchGptText} className='p-4 m-4 col-span-9'

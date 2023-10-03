@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
-import MainContainer from '../MainContainer/MainContainer'
-import { ProfileNavbar } from '../ProfileNavbar'
+import MainContainer from '../HomePage/MainContainer/MainContainer'
+import { ProfileNavbar } from '../Navbar_ProfilePage/ProfileNavbar'
 import MoviesSecondaryContainer from './MoviesSecondaryContainer'
 import useMovies from '../../hooks/useMovies'
 

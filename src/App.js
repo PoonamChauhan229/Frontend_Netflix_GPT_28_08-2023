@@ -1,16 +1,16 @@
 import { Route, Routes,Navigate } from "react-router-dom";
-import Login from "./Components/Login";
+import Login from "./components/Login";
 import { useState } from "react";
-import Home from "./Components/Home";
 import './App.css'
-import Profile from "./Components/Profile";
-import WatchPage from "./Components/WatchPage";
-import Browse from "./Components/Browse";
-import { WatchList } from "./Components/WatchList";
-import TVShowsBrowse from "./Components/TVShows/TVShowsBrowse";
-import MoviesBrowse from "./Components/Movies/MoviesBrowse";
-import NewPopularBrowse from "./Components/NewPopular/NewPopularBrowse";
-import Footer from "./Components/Footer";
+import Profile from "./components/Navbar_ProfilePage/Profile";
+import Browse from "./components/HomePage/Browse";
+import TVShowsBrowse from "./components/TVShowsPage/TVShowsBrowse";
+import MoviesBrowse from "./components/MoviesPage/MoviesBrowse";
+import NewPopularBrowse from "./components/NewPopularPage/NewPopularBrowse";
+import Footer from "./components/Footer";
+import BottomHeader from "./components/HomeFrontPageHeader/BottomHeader";
+import { WatchList } from "./components/WatchListPage/WatchList";
+import WatchPage from "./components/WatchListPage/WatchPage";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -22,7 +22,7 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
         <div>          
           
             <Routes>
-              <Route exact path='/' element={<Home isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} 
+              <Route exact path='/' element={<BottomHeader isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} 
                isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}
               
               />}/>
@@ -58,6 +58,9 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
           <Route path='/watchlist' element={<WatchList/>}/>
               
             </Routes>
+          
+            {
+            isAuthenticated && <Footer/>}
            
         </div>
   

@@ -1,5 +1,5 @@
 import React from "react";
-import { YoutubeSrcUrl } from "../../utilis/constants";
+import { YoutubeSrcUrl } from "../../../utilis/constants";
 
 const VideoBackground = ({ videoTrailer }) => {
   //console.log(videoTrailer)

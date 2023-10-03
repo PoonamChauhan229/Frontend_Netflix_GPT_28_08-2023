@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from "react";
-import Header from "./Header";
-import Banner from "../assets/Banner.jpg";
+import React from "react";
+import TopHeader from "./TopHeader";
+import Banner from "../../assets/Banner.jpg";
 import { useNavigate } from "react-router-dom";
-const Home = ({isSignInForm,setIsSignInForm, isSignUpForm,setIsSignUpForm}) => {
+const BottomHeader = ({isSignInForm,setIsSignInForm, isSignUpForm,setIsSignUpForm}) => {
   const navigate = useNavigate();
 
   
@@ -15,7 +15,7 @@ const Home = ({isSignInForm,setIsSignInForm, isSignUpForm,setIsSignUpForm}) => {
   return (
     <>
      <div className="fixed top-0 left-0 w-screen h-screen flex flex-col bg-gradient-to-b from-black z-10 bg-black">
-      <Header isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} />
+      <TopHeader isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} />
 
         <div className="flex flex-col justify-center items-center h-full">
           <img className="w-full" src={Banner} alt="banner" />
@@ -30,7 +30,7 @@ const Home = ({isSignInForm,setIsSignInForm, isSignUpForm,setIsSignUpForm}) => {
 
             <button
             onClick={handleGetStartedClick}
-            className="bg-red-600 hover:bg-red-600 text-white text-3xl font-bold px-10 rounded shadow-md transition duration-300 ease-in-out h-20 m-4"
+            className="bg-red-600 hover:bg-red-600 text-white text-xl font-bold px-10 rounded shadow-md transition duration-300 ease-in-out h-14 m-4"
           >
             Get Started
           </button>
@@ -41,4 +41,4 @@ const Home = ({isSignInForm,setIsSignInForm, isSignUpForm,setIsSignUpForm}) => {
   );
 };
 
-export default Home;
+export default BottomHeader;

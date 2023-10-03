@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
-import { URL } from '../utilis/constants'
+import { URL } from '../../utilis/constants'
 import { useDispatch, useSelector } from 'react-redux'
-import { addPlayingMovies, addPlayingTvSeries } from '../utilis/redux/watchListSlice'
-import { ProfileNavbar } from './ProfileNavbar'
+import { addPlayingMovies, addPlayingTvSeries } from '../../utilis/redux/watchListSlice'
+import { ProfileNavbar } from '../Navbar_ProfilePage/ProfileNavbar'
 import WatchContainer from './WatchContainer'
 
 export const WatchList = () => {

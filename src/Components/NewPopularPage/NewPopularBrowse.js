@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { ProfileNavbar } from '../ProfileNavbar'
+import { ProfileNavbar } from '../Navbar_ProfilePage/ProfileNavbar'
 import NewPopularSecondaryContainer from './NewPopularSecondaryContainer'
 
 const NewPopularBrowse = () => {

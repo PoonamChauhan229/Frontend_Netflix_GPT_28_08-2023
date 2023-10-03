@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMG_CDN_URL, URL } from '../../utilis/constants';
+import { IMG_CDN_URL, URL } from '../../../utilis/constants';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Alea from '../assets/profile/Alea.png'
-import Amina from '../assets/profile/Amina.png'
-import Daniel from '../assets/profile/Daniel.png'
-import Dalia from '../assets/profile/Dalia.png'
-import Ninou from '../assets/profile/Ninou.png'
+import Alea from '../../assets/profileimage/Alea.png'
+import Amina from '../../assets/profileimage/Amina.png'
+import Daniel from '../../assets/profileimage/Daniel.png'
+import Dalia from '../../assets/profileimage/Dalia.png'
+import Ninou from '../../assets/profileimage/Ninou.png'
 
 import { useSelector } from "react-redux";
 
