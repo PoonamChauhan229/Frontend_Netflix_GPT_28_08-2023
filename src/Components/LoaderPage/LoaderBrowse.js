@@ -14,15 +14,7 @@ const LoaderBrowse = () => {
     <LoaderList/>
    
   
-    {/* {
-      showGptSearch?<GptSearch/>:<div className='relative'>
-      <MainContainer movies={allDataPages}/>
-      <SecondaryContainer/>
-    </div>
-    
-    } */}
-    
-    
+     
     </>
   )
 }

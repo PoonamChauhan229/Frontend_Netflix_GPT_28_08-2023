@@ -1,6 +1,4 @@
-// MovieList.js
 import React from "react";
-import { ShimmerUIButton,ShimmerUIThumbnail} from 'shimmer-ui-effect';
 import LoaderCard from "./LoaderCard";
 
 const LoaderList = () => {
