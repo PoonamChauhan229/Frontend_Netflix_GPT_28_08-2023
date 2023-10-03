@@ -90,7 +90,9 @@ const handleGPTSearchClick=()=>{
           onClick={handleGPTSearchClick}
           >{!showGptSearch?"GPT Search":"Home"}</button>
 
-          <div className="hover:text-red-500 cursor-pointer text-sm">Kids</div>
+          <div className="hover:text-red-500 cursor-pointer text-sm">
+          <Link onClick={navigate('/loader')}>Kids</Link>
+          </div>
           <div
             className="hover:text-red-500 cursor-pointer text-sm relative"
             onClick={toggleDropdown}
