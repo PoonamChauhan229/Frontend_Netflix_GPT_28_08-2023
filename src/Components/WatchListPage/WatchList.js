@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addPlayingMovies, addPlayingTvSeries } from '../../utilis/redux/watchListSlice'
 import { ProfileNavbar } from '../Navbar_ProfilePage/ProfileNavbar'
 import WatchContainer from './WatchContainer'
+import LoaderList from '../LoaderPage/LoaderList'
 
 export const WatchList = () => {
   const watchlistmovies=useSelector((store)=>store.watchlist.playingMovies)
   const watchlisttvseries=useSelector((store)=>store.watchlist.playingTvSeries)
-    const dispatch=useDispatch()
+  console.log(watchlistmovies)  
+  const dispatch=useDispatch()
     useEffect(()=>{
         getWatchList()
     },[])
@@ -20,19 +22,20 @@ export const WatchList = () => {
        const moviewatchlist= watchlistData.filter((element)=>element.media_type==="movie")
        dispatch(addPlayingMovies(moviewatchlist))
 
-       const tvserieswatchlist= watchlistData.filter((element)=>element.media_type==="tvseries")
+       const tvserieswatchlist= watchlistData.filter((element)=>element.media_type==="tv")
        dispatch(addPlayingTvSeries(tvserieswatchlist))
     }
   return (
     <div>
         <ProfileNavbar/>
+        
          <div className='bg-black'>
          <div className='mt-10 pl-12 relative z-20'>
         <WatchContainer title={"WatchList Movies"} watchlistpropsdata={watchlistmovies}/>
         <WatchContainer title={"WatchList Tv Series"} watchlistpropsdata={watchlisttvseries}/>
         </div>
         </div>
-       
+     
     </div>
   )
 }

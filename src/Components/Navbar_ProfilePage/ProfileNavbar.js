@@ -38,7 +38,7 @@ const handleGPTSearchClick=()=>{
    // console.log("Signned Out Successfully")
     dispatch(removeUser())
     localStorage.removeItem('token')
-    navigate('/profile')
+    navigate('/')
   }
 
   const handleLanguageChange=(e)=>{
@@ -67,9 +67,8 @@ const handleGPTSearchClick=()=>{
               </div>
             <div className="hover:text-red-500 cursor-pointer">
               <Link to='/watchlist'>My List</Link></div>
-            <div className="hover:text-red-500 cursor-pointer">
-              
-              <Link onClick={navigate('/loader')}>Browse by Languages</Link>
+            <div className="hover:text-red-500 cursor-pointer">              
+              {/* <Link onClick={navigate('/loader')}>Browse by Languages</Link> */}
               </div>
           </div>          
         </div>
@@ -90,9 +89,12 @@ const handleGPTSearchClick=()=>{
           onClick={handleGPTSearchClick}
           >{!showGptSearch?"GPT Search":"Home"}</button>
 
-          <div className="hover:text-red-500 cursor-pointer text-sm">
-          <Link onClick={navigate('/loader')}>Kids</Link>
+
+          <div className="hover:text-red-500 cursor-pointer text-sm border-red-500">
+         Kids
           </div>
+          
+          
           <div
             className="hover:text-red-500 cursor-pointer text-sm relative"
             onClick={toggleDropdown}

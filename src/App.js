@@ -33,13 +33,13 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
               isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}       
               />}/>
 
-            <Route exact path='/profile/:username' element={<Browse/>}/>
+             <Route exact path='/profile/:username' element={<Browse/>}/>
          
 
-                  <Route path="/login/:param" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
-                  isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}
-                  isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}  
-                  />} />
+            <Route path="/login/:param" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
+            isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}
+            isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}  
+            />} />
 
             {isAuthenticated ? (
           <Route exact path="/profile" element={<Profile />} />
@@ -57,7 +57,6 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
           <Route path='/newpopular' element={<NewPopularBrowse/>}/>
           <Route path='/home' element={<Browse/>}/>
           <Route path='/watchlist' element={<WatchList/>}/>
-          <Route path='loader' element={<LoaderBrowse/>}/>  
             </Routes>
 
           
