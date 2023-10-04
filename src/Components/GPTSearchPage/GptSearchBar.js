@@ -29,7 +29,7 @@ export const GptSearchBar = () => {
     <div className=' flex justify-center'>
   
         <form className='w-1/2 bg-black grid grid-cols-12' onSubmit={(e)=>e.preventDefault()}>
-            <input type="text" ref={searchGptText} className='p-4 m-4 col-span-9'
+            <input type="text" ref={searchGptText} className='p-4 m-4 col-span-9 text-black'
             placeholder={lang[langKey].gptSearchPlaceholder}/>
             <button className='col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg'
             onClick={handleGptSearchClick}
