@@ -9,7 +9,7 @@ const WatchContainer = ({ title, watchlistpropsdata }) => {
     <div className='mt-[50px]'>
       <div className='px-6'>
         <h1 className='text-lg font-bold py-4 text-white'>{title}</h1>
-        {watchlistpropsdata.length > 0 ? (
+        {watchlistpropsdata !== null && watchlistpropsdata.length > 0 ? (
           <div className='flex overflow-x-auto overflow-y-hidden' style={{ scrollbarWidth: 'thin' }}>
             {watchlistpropsdata.map((element) => (
               <WatchCard key={element.id} {...element} />
