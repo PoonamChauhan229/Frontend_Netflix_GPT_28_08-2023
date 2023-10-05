@@ -2,10 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPage1, addPage2, addPage3, addPage4, addPage5 } from '../utilis/redux/allDataSlice';
 import axios from 'axios';
+import { URL } from '../utilis/constants';
+
 
 const useHomeAll = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem('token');
+
   const alldataPagesData = useSelector((store) => store.allDataPages);
   const { page1, page2, page3, page4, page5 } = alldataPagesData;
 
@@ -16,7 +19,6 @@ const useHomeAll = () => {
       console.log("No token available or data is already in the store.");
     }
   }, [token, page1, page2, page3, page4, page5]);
-
   const getAllList = async () => {
     try {
       const pagemovietv = await axios.get(`${URL}/getalllist`);

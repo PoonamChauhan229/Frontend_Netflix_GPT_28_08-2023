@@ -22,18 +22,18 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
    
         <div>          
           
-            <Routes>
-              <Route exact path='/' element={<BottomHeader isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} 
-               isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}
-              
-              />}/>
+          <Routes>
+            <Route exact path='/' element={<BottomHeader isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} 
+              isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}
+            
+            />}/>
 
-              <Route exact path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
-              isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}   
-              isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}       
-              />}/>
+            <Route exact path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
+            isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}   
+            isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}       
+            />}/>
 
-             <Route exact path='/profile/:username' element={<Browse/>}/>
+            
          
 
             <Route path="/login/:param" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}
@@ -47,17 +47,25 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
           // Redirect to the home page if the user is not authenticated
           <Route path="/profile" element={<Navigate to="/" />} />          
         )}  
-        <Route path='/watchpage' element={<WatchPage/>}/>
+       
 
        
 
         {/* ProfileNavbar Routes */}
+
+         {/* Protected Routes */}
+         {isAuthenticated && (
+          <>
+          <Route exact path='/profile/:username' element={<Browse/>}/>
+          <Route path='/watchpage' element={<WatchPage/>}/>
           <Route path='/tvshows' element={<TVShowsBrowse/>}/>
           <Route path='/movies' element={<MoviesBrowse/>}/>
           <Route path='/newpopular' element={<NewPopularBrowse/>}/>
           <Route path='/home' element={<Browse/>}/>
           <Route path='/watchlist' element={<WatchList/>}/>
-            </Routes>
+          </>
+        )}
+      </Routes>
 
           
             {

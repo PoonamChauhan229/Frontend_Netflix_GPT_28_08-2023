@@ -8,8 +8,8 @@ const useTvShows = () => {
     const dispatch=useDispatch()
     const token=localStorage.getItem('token')
     // console.log("MoviesToken",token)
-    const alldataTvSeries = useSelector((store) => store.tvseries);
-   const {airingTodayTvSeries,onTheAirTvSeries,popularTvSeries,topRatedTvSeries} = alldataTvSeries;
+    const alldataTvSeries = useSelector((store) => store?.tvseries) ;
+   const {airingTodayTvSeries,onTheAirTvSeries,popularTvSeries,topRatedTvSeries} = alldataTvSeries || {};
  
    useEffect(() => {
      if (token && (!airingTodayTvSeries || !onTheAirTvSeries || !popularTvSeries || !topRatedTvSeries)) {
