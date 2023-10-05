@@ -2,17 +2,17 @@ import { Route, Routes,Navigate } from "react-router-dom";
 
 import { useState } from "react";
 import './App.css'
-import Profile from "./components/Navbar_ProfilePage/Profile";
-import Browse from "./components/HomePage/Browse";
-import TVShowsBrowse from "./components/TVShowsPage/TVShowsBrowse";
-import MoviesBrowse from "./components/MoviesPage/MoviesBrowse";
-import NewPopularBrowse from "./components/NewPopularPage/NewPopularBrowse";
+import Profile from "./Components/Navbar_ProfilePage/Profile";
+import Browse from "./Components/HomePage/Browse";
+import TVShowsBrowse from "./Components/TVShowsPage/TVShowsBrowse";
+import MoviesBrowse from "./Components/MoviesPage/MoviesBrowse";
+import NewPopularBrowse from "./Components/NewPopularPage/NewPopularBrowse";
 
-import BottomHeader from "./components/HomeFrontPageHeader/BottomHeader";
-import { WatchList } from "./components/WatchListPage/WatchList";
-import WatchPage from "./components/WatchListPage/WatchPage";
-import Login from "./components/Login";
-import Footer from "./components/Footer";
+import BottomHeader from "./Components/HomeFrontPageHeader/BottomHeader";
+import { WatchList } from "./Components/WatchListPage/WatchList";
+import WatchPage from "./Components/WatchListPage/WatchPage";
+import Login from "./Components/Login";
+import Footer from "./Components/Footer";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);

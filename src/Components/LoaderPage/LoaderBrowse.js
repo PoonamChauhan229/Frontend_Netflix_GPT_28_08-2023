@@ -1,5 +1,5 @@
 
-import {ProfileNavbar} from '../../components/Navbar_ProfilePage/ProfileNavbar'
+import {ProfileNavbar} from '../../Components/Navbar_ProfilePage/ProfileNavbar'
 import LoaderPrimaryContainer from './LoaderPrimaryContainer'
 import LoaderList from './LoaderList'
 
