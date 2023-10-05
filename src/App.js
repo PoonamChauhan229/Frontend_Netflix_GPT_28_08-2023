@@ -1,5 +1,5 @@
 import { Route, Routes,Navigate } from "react-router-dom";
-import Login from "./components/Login";
+import Login from './components/Login'
 import { useState } from "react";
 import './App.css'
 import Profile from "./components/Navbar_ProfilePage/Profile";
