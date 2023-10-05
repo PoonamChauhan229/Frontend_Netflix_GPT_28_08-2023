@@ -7,11 +7,12 @@ import Browse from "./components/HomePage/Browse";
 import TVShowsBrowse from "./components/TVShowsPage/TVShowsBrowse";
 import MoviesBrowse from "./components/MoviesPage/MoviesBrowse";
 import NewPopularBrowse from "./components/NewPopularPage/NewPopularBrowse";
-import Footer from "./components/Footer";
+
 import BottomHeader from "./components/HomeFrontPageHeader/BottomHeader";
 import { WatchList } from "./components/WatchListPage/WatchList";
 import WatchPage from "./components/WatchListPage/WatchPage";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -20,8 +21,7 @@ const[isSignUpForm,setIsSignUpForm]=useState(false)
 const [isAuthenticated,setIsAuthenticated]=useState(false)
   return (
    
-        <div>          
-        
+        <div>  
           <Routes>
             <Route exact path='/' element={<BottomHeader isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} 
               isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}
