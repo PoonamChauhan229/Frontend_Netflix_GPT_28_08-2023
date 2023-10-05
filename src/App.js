@@ -1,5 +1,5 @@
 import { Route, Routes,Navigate } from "react-router-dom";
-import Login from './components/Login'
+
 import { useState } from "react";
 import './App.css'
 import Profile from "./components/Navbar_ProfilePage/Profile";
@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import BottomHeader from "./components/HomeFrontPageHeader/BottomHeader";
 import { WatchList } from "./components/WatchListPage/WatchList";
 import WatchPage from "./components/WatchListPage/WatchPage";
-import LoaderBrowse from "./components/LoaderPage/LoaderBrowse";
+import Login from "./components/Login";
 
 function App() {
 const [isSignInForm, setIsSignInForm] = useState(false);
@@ -21,7 +21,7 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
   return (
    
         <div>          
-          
+        
           <Routes>
             <Route exact path='/' element={<BottomHeader isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm} 
               isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}
@@ -32,6 +32,7 @@ const [isAuthenticated,setIsAuthenticated]=useState(false)
             isSignInForm={isSignInForm} setIsSignInForm={setIsSignInForm}   
             isSignUpForm={isSignUpForm} setIsSignUpForm={setIsSignUpForm}       
             />}/>
+
 
             
          
