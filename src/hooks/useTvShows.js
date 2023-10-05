@@ -1,5 +1,5 @@
 import { URL } from '../utilis/constants';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { addAiringTodayTvSeries, addOnTheAirTvSeries, addTopRatedTvSeries,addPopularTvSeries } from '../utilis/redux/tvseriesSlice';
 import axios from 'axios';
@@ -7,14 +7,19 @@ import axios from 'axios';
 const useTvShows = () => {
     const dispatch=useDispatch()
     const token=localStorage.getItem('token')
-    console.log("MoviesToken",token)
+    // console.log("MoviesToken",token)
+    const alldataTvSeries = useSelector((store) => store.tvseries);
+   const {airingTodayTvSeries,onTheAirTvSeries,popularTvSeries,topRatedTvSeries} = alldataTvSeries;
+ 
+   useEffect(() => {
+     if (token && (!airingTodayTvSeries || !onTheAirTvSeries || !popularTvSeries || !topRatedTvSeries)) {
+      getTvShows();
+     } else {
+       console.log("No token available or data is already in the store.");
+     }
+   }, [token,airingTodayTvSeries,onTheAirTvSeries,popularTvSeries,topRatedTvSeries]);
 
-    useEffect(() => {
-      if(token){
-        getTvShows();
-      }
-    }, []);
-  
+    
     const getTvShows=async()=>{
 
 
